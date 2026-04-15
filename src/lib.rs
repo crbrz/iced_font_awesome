@@ -1,7 +1,7 @@
 use iced::advanced::layout::{self, Layout};
 use iced::advanced::widget::{self, Widget};
 use iced::advanced::{renderer, Text};
-use iced::widget::text::{Catalog, LineHeight, Shaping, Style, StyleFn};
+use iced::widget::text::{Catalog, Ellipsis, LineHeight, Shaping, Style, StyleFn};
 use iced::{mouse, Point};
 use iced::{Color, Element, Length, Rectangle, Size};
 use iced::{Font, Pixels};
@@ -144,12 +144,15 @@ where
             size: Pixels::from(self.size),
             font: self.font,
             wrapping: widget::text::Wrapping::None,
+            ellipsis: Ellipsis::default(),
+            hint_factor: None,
         };
 
         renderer.fill_text(
             text,
             Point::new(layout.bounds().center_x(), layout.bounds().center_y()),
-            self.color.unwrap_or(appearance.color.unwrap_or(style.text_color)),
+            self.color
+                .unwrap_or(appearance.color.unwrap_or(style.text_color)),
             *viewport,
         );
     }
