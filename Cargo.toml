@@ -15,7 +15,7 @@ license = "MIT"
 path = "src/lib.rs"
 
 [dependencies]
-iced = { git = "https://github.com/iced-rs/iced.git", branch="master", features = ["advanced"] }
+iced = { git = "https://github.com/crbrz/iced.git", branch="patch", features = ["advanced"] }
 serde = { version = "1.0.228", features = ["derive"] }
 serde_json = "1.0.149"
 
